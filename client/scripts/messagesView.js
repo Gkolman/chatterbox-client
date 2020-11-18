@@ -3,19 +3,17 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
-
-
-    //messageView.render(data[i])
-
-    // iterate through existing server data
-    // get neessary data from each message element
-    // fill form with data
-    // append data to the MessagesView.$chats
-
-
+    Parse.readAll( (data) => {
+      for ( var messages of data.results) {
+        if (!messages.username || !messages.text ) { continue; }
+        var messageTemp = MessageView.render(messages);
+        MessagesView.$chats.append(messageTemp);
+      }
+    } );
   },
 
   render: function() {
+
   }
 
 };

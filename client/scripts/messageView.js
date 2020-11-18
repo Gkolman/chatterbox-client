@@ -6,6 +6,4 @@ var MessageView = {
         <div class="text"> <%=text%> </div>
       </div>
     `)
-
-  //"<script> $(".chats").on( "click", function () { console.log("Hello from the NSA!!!") }) </script>"//
 };

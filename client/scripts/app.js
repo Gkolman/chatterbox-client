@@ -11,8 +11,6 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
-    //initialize previous messages()
-
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
@@ -21,25 +19,6 @@ var App = {
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
-      // examine the response from the server request:
-
-      console.log(data.r);
-
-      // all messages === data.results - > array
-
-      for ( var messages of data.results) {
-        console.log('message ->', messages);
-        if (!messages.username || !messages.text || message.text.includes('<script>') ) { continue; }
-
-        MessagesView.$chats.append(MessageView.render(messages));
-      }
-
-
-      // data - > list
-
-
-
-
       callback();
     });
   },
