@@ -26,14 +26,29 @@
       <h1>chatterbox</h1>
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">
-        Room:
-        <select></select>
-        <button>Add Room</button>
+        <label for="lobbySelector"> Room: </label>
+        <select name="lobbySelector" id="rooms">
+          <option>Lobby</option>
+          <option>Test Room</option>
+
+        </select>
+
+          <input type="text" name="roomsForm" id= "roomFormText"/>
+          <button onclick="myFunction()"> Add Room</button>
+          <script>myFunction = function() {
+
+            var newRoomName = document.getElementById('roomFormText').value;
+
+            }
+          </script>
+
+
       </div>
       <form action="#" id="send" method="post">
         <input type="text" name="message" id= "newMessage"/>
         <input type="submit" name="submit" class="submit"/>
       </form>
+
     </div>
     <div id="chats"></div>
     <script src="client/env/config.js"></script>

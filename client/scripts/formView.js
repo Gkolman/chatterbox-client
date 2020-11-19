@@ -10,14 +10,22 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
 
+
+    var currentroom; // -> assign value of current room
+    // currentRoom as defalt is going to === lobby
+    // currentRoom - updates it is selected from dropdown selector
+    //
+
+    //
+
+
     var username = window.App.username;
     var text = document.getElementById('newMessage').value;
-    var roomName = 'lobby';
 
     var message = {
       username: username,
       text: text,
-      roomname: roomName
+      roomname: (currentroom) ? currentroom : 'lobby'
     };
 
     Parse.create(message);
