@@ -6,7 +6,6 @@ var RoomsView = {
   roomTemplate: _.template(
     `
     <option class="rooms"> <%= roomname %> </div>`
-
   ),
 
   initialize: function() {
