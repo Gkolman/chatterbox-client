@@ -27,24 +27,29 @@
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">
         <label for="lobbySelector"> Room: </label>
-        <select name="lobbySelector" id="rooms">
-          <option>Lobby</option>
-          <option>Test Room</option>
-
+        <select name="lobbySelector" id="lobbySelector" onchange = "filterRoom()">
         </select>
-
           <input type="text" name="roomsForm" id= "roomFormText"/>
-          <button onclick="myFunction()"> Add Room</button>
-          <script>myFunction = function() {
+          <button onclick="addRoom()"> Add Room </button>
+          <script>
 
-            var newRoomName = document.getElementById('roomFormText').value;
+            addRoom = function() {
+            var newRoomName = { roomname: document.getElementById('roomFormText').value }
+            RoomsView.$select.append(RoomsView.roomTemplate(newRoomName));
+            document.getElementById('roomFormText').value = '';
 
+            };
+
+            filterRoom = () => {
+             $('.chat').remove();
+              MessagesView.initialize();
             }
+
           </script>
 
 
       </div>
-      <form action="#" id="send" method="post">
+      <form action="#" id= "send" method= "post" >
         <input type="text" name="message" id= "newMessage"/>
         <input type="submit" name="submit" class="submit"/>
       </form>

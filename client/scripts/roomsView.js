@@ -13,7 +13,6 @@ var RoomsView = {
 
     Parse.readAll( (data) => {
 
-      // get unique messageRooms
       var uniqueRooms = {};
       for ( var messages of data.results) {
         if (!messages.roomname) { continue; }
@@ -25,15 +24,6 @@ var RoomsView = {
       }
 
     });
-    // template
-    // initialize lobby room
-    // initialize
-    // parseRead all - get all roomname variations
-    // append all unique messages to our select tag element
-
-
-
-
   },
 
   render: function() {

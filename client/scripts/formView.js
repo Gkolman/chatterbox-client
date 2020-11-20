@@ -7,18 +7,11 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
+
     // Stop the browser from submitting the form
     event.preventDefault();
 
-
-    var currentroom; // -> assign value of current room
-    // currentRoom as defalt is going to === lobby
-    // currentRoom - updates it is selected from dropdown selector
-    //
-
-    //
-
-
+    var currentroom = document.getElementById('lobbySelector').value;
     var username = window.App.username;
     var text = document.getElementById('newMessage').value;
 
