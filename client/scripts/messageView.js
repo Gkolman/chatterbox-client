@@ -1,9 +1,11 @@
 var MessageView = {
 
+  $chat: $('.chat'),
+
   render: _.template(`
       <div class="chat">
-        <div class='<%= username %>' onclick="addOrRemoveFriend('<%= username %>')"> <%= username %> </div>
-        <div class="text"> <%=text%> </div>
+      <div class= "username <%= username %>" onclick="Friends.toggleStatus('<%= username %>')"> <%= username %> </div>
+      <div class="text"> <%=text%> </div>
       </div>
     `),
 

@@ -66,11 +66,13 @@ describe('chatterbox', function() {
 
   describe('chatroom behavior', function() {
     it('should be able to add messages to the DOM', function() {
+
       var message = {
         username: 'Mel Brooks',
         text: 'Never underestimate the power of the Schwartz!',
         roomname: 'lobby'
       };
+
       MessagesView.renderMessage(message);
       expect($('#chats').children().length).to.equal(1);
     });
@@ -99,11 +101,12 @@ describe('chatterbox', function() {
     });
 
     it('should add a room when clicking add', function() {
+
       sinon.spy(Rooms, 'add');
       var prompt = window.prompt;
       window.prompt = sinon.stub().returns('testroom');
-
       App.initialize();
+
       $('#rooms').find('button').trigger('click');
       expect(Rooms.add.called).to.be.true;
 

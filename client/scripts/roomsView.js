@@ -5,7 +5,8 @@ var RoomsView = {
 
   roomTemplate: _.template(
     `
-    <option class="rooms"> <%= roomname %> </div>`
+    <option class="rooms"> <%= roomname %> </option>
+    `
   ),
 
   initialize: function() {
@@ -26,6 +27,11 @@ var RoomsView = {
   },
 
   render: function() {
+  },
+
+  renderRoom: function (newRoom) {
+
+    RoomsView.$select.append('<option class="rooms">', newRoom, '</option>');
   }
 
 };

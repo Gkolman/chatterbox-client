@@ -7,26 +7,26 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
-
     // Stop the browser from submitting the form
     event.preventDefault();
+    // extracting data here
+    if (document.getElementById('lobbySelector')) {
+      var currentroom = document.getElementById('lobbySelector').value;
+    } else {
+      var currentroom = 'lobby';
+    }
 
-    var currentroom = document.getElementById('lobbySelector').value;
     var username = window.App.username;
-    var text = document.getElementById('newMessage').value;
-
+    var text = document.getElementById('message').value;
+    // using data to fill in message format
     var message = {
       username: username,
       text: text,
-      roomname: (currentroom) ? currentroom : 'lobby'
+      roomname: currentroom
     };
 
-    Parse.create(message);
-    document.getElementById('newMessage').value = '';
-
-    var messageTemp = MessageView.render(message);
-    MessagesView.$chats.prepend(messageTemp);
-
+    MessagesView.renderMessage(message);
+    document.getElementById('message').value = '';
   },
 
   setStatus: function(active) {

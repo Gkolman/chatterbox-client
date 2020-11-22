@@ -30,37 +30,34 @@
         <select name="lobbySelector" id="lobbySelector" onchange = "filterRoom()">
         </select>
           <input type="text" name="roomsForm" id= "roomFormText"/>
-          <button onclick="addRoom()"> Add Room </button>
+          <button> Add Room </button>
           <script>
 
-            addRoom = function() {
-            var newRoomName = { roomname: document.getElementById('roomFormText').value }
-            RoomsView.$select.append(RoomsView.roomTemplate(newRoomName));
-            document.getElementById('roomFormText').value = '';
+            // add = function() {
+            // var newRoomName = { roomname: document.getElementById('roomFormText').value }
+            // RoomsView.$select.append(RoomsView.roomTemplate(newRoomName));
+            // document.getElementById('roomFormText').value = '';
 
-            };
+            // };
 
             filterRoom = () => {
              $('.chat').remove();
               MessagesView.initialize();
             };
 
-            addOrRemoveFriend = (friend) => {
-              if (Friends.friendsList[friend]) {
-                delete Friends.friendsList[friend]
-                $('.' + friend).removeAttr('id', 'friend');
-              } else {
-                Friends.friendsList[friend] = true;
-                $('.' + friend).attr('id', 'friend');
-              }
-            }
+            // addOrRemoveFriend = (friend) => {
+            //   console.log(friend);
+            //   Friends.toggleStatus.called = true;
+
+            //   Friends.toggleStatus(friend);
+            // };
 
           </script>
 
 
       </div>
-      <form action="#" id= "send" method= "post" >
-        <input type="text" name="message" id= "newMessage"/>
+      <form action="#" class="message" id= "send" method= "post" >
+        <input type="text" name="message" id= "message"/>
         <input type="submit" name="submit" class="submit"/>
       </form>
 
@@ -68,11 +65,11 @@
     <div id="chats"></div>
     <script src="client/env/config.js"></script>
     <script src="client/scripts/parse.js"></script>
+    <script src="client/scripts/roomsView.js"></script>
     <script src="client/scripts/rooms.js"></script>
     <script src="client/scripts/friends.js"></script>
     <script src="client/scripts/messages.js"></script>
     <script src="client/scripts/formView.js"></script>
-    <script src="client/scripts/roomsView.js"></script>
     <script src="client/scripts/messageView.js"></script>
     <script src="client/scripts/messagesView.js"></script>
     <script src="client/scripts/app.js"></script>
